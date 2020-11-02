@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('update/{id}', 'DocumentController@update');
+
+Route::get('documents', 'DocumentController@getDocuments');
+Route::get('document/{id}', 'DocumentController@getDocumentById');
+Route::post('document', 'DocumentController@uploadDocument');
+Route::post('document/{id}', 'DocumentController@updateDocument');
+Route::delete('document/{id}', 'DocumentController@deleteDocument');
+Route::get('download/{fileName}', 'DocumentController@downloadDocument');
